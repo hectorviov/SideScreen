@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- **Mac: changing the bitrate while streaming froze the app.** Each step of the slider rebuilt the video encoder on the main thread while frames were still being encoded, which hung macOS's encoder service and with it Side Screen. Bitrate changes now apply to the running encoder without a rebuild, slider bursts collapse into the latest value, and the window stays responsive.
+
 ### Planned
 - mDNS auto-discovery for wireless mode
 - Audio streaming
